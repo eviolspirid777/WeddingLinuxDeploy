@@ -1,0 +1,58 @@
+services:
+  # PostgreSQL база данных
+  postgres:
+    image: postgres:15-alpine
+    container_name: wedding-postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: wedding_db
+      POSTGRES_USER: wedding_user
+      POSTGRES_PASSWORD: wedding_password
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    networks:
+      - wedding-network
+
+  # .NET Web API
+  wedding-api:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: wedding-api
+    restart: unless-stopped
+    ports:
+      - "5000:8080"
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Docker
+      - ASPNETCORE_URLS=http://+:8080
+      - ConnectionStrings__DefaultConnection=Host=postgres;Port=5432;Database=wedding_db;Username=wedding_user;Password=wedding_password
+    depends_on:
+      - postgres
+    networks:
+      - wedding-network
+
+  # React клиент
+  wedding-client:
+    build:
+      context: ./wedding_client
+      dockerfile: Dockerfile
+    container_name: wedding-client
+    restart: unless-stopped
+    ports:
+      - "3000:80"
+    environment:
+      - NODE_ENV=production
+      - VITE_BASE_URL=http://localhost:5000
+    depends_on:
+      - wedding-api
+    networks:
+      - wedding-network
+
+volumes:
+  postgres_data:
+
+networks:
+  wedding-network:
+    driver: bridge
