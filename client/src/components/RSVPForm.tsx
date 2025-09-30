@@ -41,8 +41,6 @@ export const RSVPForm = () => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     // Здесь будет логика отправки формы
-    console.log("Form submitted:", formData);
-    console.log(import.meta.env);
     const API_URL = import.meta.env.VITE_BASE_URL || "http://localhost:5000";
     await axios.post(`${API_URL}/v1/api/Wedding/post-wedding-form`, formData);
     setIsSubmitted(true);
@@ -53,7 +51,7 @@ export const RSVPForm = () => {
       <div key={personId} className="md:col-span-2">
         <label className="flex items-center space-x-2 text-gray-700 font-medium mb-3">
           <User className="w-5 h-5 text-pink-400" />
-          <span>Имя*</span>
+          <span>Имя и фамилия*</span>
         </label>
         <div className="relative">
           <input
@@ -63,7 +61,7 @@ export const RSVPForm = () => {
             value={formData.names[idx]}
             onChange={handleInputChange}
             className="w-full p-4 border border-gray-200 rounded-xl focus:ring-2 focus:ring-pink-300 focus:border-transparent transition-all duration-300"
-            placeholder="Введите имя гостя"
+            placeholder="Введите ФИО гостя"
           />
           {basePersonsForms.length > 1 && (
             <CircleX

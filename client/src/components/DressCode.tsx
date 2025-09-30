@@ -24,6 +24,12 @@ export const DressCode = () => {
                   теплом и благодарностью!
                 </p>
               </li>
+              <li className="mb-2">
+                <p className="text-gray-600 text-justify leading-relaxed">
+                  Белое платье — только у невесты! Остальным — свобода цвета,
+                  радости и хорошего настроения!
+                </p>
+              </li>
             </ul>
           </div>
         </div>

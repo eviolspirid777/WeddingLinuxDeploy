@@ -41,9 +41,7 @@ export const WeddingInvitation = () => {
           <div className="w-32 h-1 bg-gradient-to-r from-pink-300 to-amber-300 mx-auto mb-8 rounded-full"></div>
 
           <p className="text-xl md:text-2xl text-gray-600 font-light mb-8 leading-relaxed">
-            Мы приглашаем вас разделить с нами
-            <br />
-            самый счастливый день в нашей жизни
+            Приглашают вас на свою свадьбу
           </p>
 
           <div className="bg-white/80 backdrop-blur-sm rounded-3xl p-8 shadow-2xl border border-pink-100">
@@ -51,11 +49,9 @@ export const WeddingInvitation = () => {
               Свадебное торжество
             </h2>
             <p className="text-lg text-gray-600 leading-relaxed">
-              Мы будем счастливы видеть вас на нашей свадьбе!
+              Это не просто праздник - это начало новой главы
               <br />
-              Небольшая просьба: оставьте белый цвет для невесты —
-              <br />
-              пусть он останется её особенным символом в этот день.
+              которую мы хотим написать в кругу самых близких.
             </p>
           </div>
         </div>
