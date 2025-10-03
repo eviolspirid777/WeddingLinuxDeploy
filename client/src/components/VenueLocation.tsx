@@ -32,11 +32,11 @@ export const VenueLocation = () => {
                   <MapPin className="w-5 h-5 text-amber-400 mt-0.5 flex-shrink-0" />
                   <span>ул. Кавалерийская ул., 25А, Ставрополь этаж 2</span>
                 </p>
-                <p className="text-lg leading-relaxed">
+                {/* <p className="text-lg leading-relaxed">
                   Элегантный ресторан в самом сердце города с потрясающими
                   интерьерами и изысканной кухней. Идеальное место для
                   незабываемого торжества.
-                </p>
+                </p> */}
                 <div className="pt-4">
                   <button
                     onClick={redirectOnMap}
